@@ -1,5 +1,5 @@
-# remotes::install_github("hemicontinuous/dryad/R")
-library(dryad)
+# remotes::install_github("hemicontinuous/robyn/R")
+library(robyn)
 library(readxl)
 ## Force multicore 
 Sys.setenv(R_FUTURE_FORK_ENABLE = "true")
@@ -16,7 +16,7 @@ mydata <- read_excel("demo_data_Nov22.xlsx", sheet = "data")
 data("dt_prophet_holidays")
 head(dt_prophet_holidays)
 # Directory where you want to export results to (will create new folders)
-robyn_object <- "C:/Users/charl/Documents/ROBYN"
+robyn_object <- "~/ROBYN"
 
 ################################################################
 InputCollect <- robyn_inputs(
