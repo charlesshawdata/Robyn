@@ -42,6 +42,10 @@ library(car)
 #### Step 1: Load data
 ## Load data, define dev_var
 # setwd("P:/charles.shaw/EA/DATA")
+# setwd("~/jobs/upwork/TSD")
+
+### md <- read_excel("~/jobs/upwork/TSD/ch-demo/demo_data.xlsx" , sheet = "data")
+### md
 
 # data("dt_simulated_weekly")
 # mydata <- dt_simulated_weekly
@@ -144,6 +148,7 @@ create_plt_output_dir <- function(result_output_dir, sub_dir_plt){
 # }
 
 # An example of importing an R module with its all components (functions and variables using source function)
+# source("/home/computer/jobs/upwork/TSD/Robyn/R/R/gfg.r", encoding = 'utf-8')
 # sum2nums <- add(5,7)
 # sum2nums
 ################################################################################
@@ -642,14 +647,16 @@ pm_impress_vs_spends_graph <- function(mydata, paid_media_impressions, paid_medi
 # pm_im_sp_robyn
 
 ############################################################################################################
-run_diagnostics <- function(){
+run_diagnostics <- function(mydata){
   # This variables are used for just conducting some diagnostics tests on dep and indep vars 
   # The index of the depvar_name in the main dataframe is determined manually by checking df colnames as below
   colnames(mydata)
   # In our case it is at the third index of df column names
-  my_depvar_name <- colnames(mydata)[3]
+  # my_depvar_name <- colnames(mydata)[3]
+  my_depvar_name <- InputCollect$dep_var
   # my_depvar_name
   my_paid_media_spends <- InputCollect$paid_media_spends
+  # my_paid_media_spends
   # c("tv_S", "ooh_S", "print_S", "facebook_S", "search_S") # enter paid media spends here
   my_paid_media_impressions <- c("facebook_I")
   my_context_vars <- InputCollect$context_vars
@@ -665,6 +672,9 @@ run_diagnostics <- function(){
   # mydata[my_depvar_name]
   # mydata[my_paid_media_spends]
   
+  # This part is for conducting some diagnostics tests on dependent and independent variables
+  # Importing the diagnostics.r module using source(...) function
+  # source("~/jobs/upwork/TSD/Robyn/R/R/diagnostics_via_function.r", encoding = "UTF-8")
   
   # Creating main directory inside Robyn results folder. In my case, it is in the Desktop folder.
   diag_res_output_dir <- paste0(OutputCollect$plot_folder,"Diagnostics")
